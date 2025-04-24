@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import CardComponent from './card';
 
 function News() {
 
@@ -22,11 +23,11 @@ function News() {
 
   return (
     <div>
-      {news.map((nouvelle, index) => (
-        <div key={index}>
-          <h3>{nouvelle.title}</h3>
-          <p>{nouvelle.content}</p>
-        </div>
+      {news.map((article) => (
+        <CardComponent
+          articleInfo={article}
+          key={article.url} //utilisation de article.url et pas article.id car les articles n'ont pas d'id
+        />
       ))}
     </div>
   );
